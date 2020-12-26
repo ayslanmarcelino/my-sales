@@ -17,8 +17,12 @@ group :development, :test do
 end
 
 group :development do
+  gem 'annotate'
+  gem 'cpf_faker'
+  gem 'faker'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.2'
+  gem 'pry'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end

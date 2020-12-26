@@ -10,9 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_12_26_070817) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "enterprises", force: :cascade do |t|
+    t.string "description"
+    t.string "primary_color"
+    t.string "secondary_color"
+    t.string "document_number"
+    t.string "company_name"
+    t.string "fantasy_name"
+    t.string "email"
+    t.date "opening_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["document_number"], name: "index_enterprises_on_document_number", unique: true
+  end
 
 end
