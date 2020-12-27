@@ -19,4 +19,5 @@
 #  index_enterprises_on_document_number  (document_number) UNIQUE
 #
 class Enterprise < ApplicationRecord
+  has_one_attached :logo
 end
