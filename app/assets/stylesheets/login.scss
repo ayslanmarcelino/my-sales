@@ -9,7 +9,7 @@ html {
 }
 
 .user-card {
-  height: 400px;
+  height: 500px;
   width: 350px;
   margin-top: auto;
   margin-bottom: auto;
@@ -25,26 +25,11 @@ html {
   border-radius: 5px;
 }
 
-.brand-logo-container {
-  position: absolute;
-  height: 170px;
-  width: 170px;
-  top: -75px;
-  border-radius: 50%;
-  background: #111;
-  padding: 10px;
-  text-align: center;
-}
-
 .brand-logo {
   height: 150px;
   width: 150px;
   border-radius: 50%;
   border: 2px solid white;
-}
-
-.form-container {
-  margin-top: 60px;
 }
 
 .login-btn {
