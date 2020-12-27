@@ -16,17 +16,17 @@ module SuperAdmins
     def create
       @enterprise = Enterprise.new(params_enterprise)
 
-      @enterprise.save ? (redirect_to super_admins_enterprises_path, notice: 'Empresa cadastrada com sucesso') : (render :new)
+      @enterprise.save ? (redirect_to super_admins_enterprises_path, notice: 'Empresa cadastrada com sucesso.') : (render :new)
     end
 
     def edit; end
 
     def update
-      @enterprise.update(params_enterprise) ? (redirect_to super_admins_enterprises_path, notice: 'Empresa atualizada com sucesso') : (render :edit)
+      @enterprise.update(params_enterprise) ? (redirect_to super_admins_enterprises_path, notice: 'Empresa atualizada com sucesso.') : (render :edit)
     end
 
     def destroy
-      @enterprise.destroy ? (redirect_to super_admins_enterprises_path, notice: 'Empresa excluída com sucesso') : (render :index)
+      @enterprise.destroy ? (redirect_to super_admins_enterprises_path, notice: 'Empresa excluída com sucesso.') : (render :index)
     end
 
     private
@@ -36,7 +36,8 @@ module SuperAdmins
     end
 
     def params_enterprise
-      params.require(:enterprise).permit(:description, :instagram, :twitch, :whatsapp_group, :primary_color, :secondary_color, :logo, :favicon)
+      params.require(:enterprise).permit(:company_name, :description, :document_number, :email, :fantasy_name, :opening_date, :primary_color,
+                                         :secondary_color)
     end
 
     def invalid_foreign_key

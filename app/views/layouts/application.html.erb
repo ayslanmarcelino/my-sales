@@ -17,11 +17,13 @@
   <body>
     <div class="d-flex" id="wrapper">
       <div class="border-right" id="sidebar-wrapper" style="background-color: <%= current_user.enterprise.primary_color %>">
-        <div class="sidebar-heading">
-          <%= image_tag(current_user.enterprise.logo) if current_user.enterprise.logo.attached? %>
+        <div class="sidebar-heading text-center">
+          <%= image_tag(current_user.enterprise.logo, height: 80) if current_user.enterprise.logo.attached? %>
         </div>
-        <div class="list-group list-group-flush">
-          <%= link_to dashboard_index_path, class: 'list-group-item list-group-item-action', style: "background-color: #{current_user.enterprise.primary_color} !important" do %>
+        <div class="list-group list-group-flush" style="color: <%= current_user.enterprise.secondary_color %>">
+          <%= link_to dashboard_index_path, class: 'list-group-item list-group-item-action',
+                                            style: "color: #{current_user.enterprise.secondary_color};
+                                                    background-color: #{current_user.enterprise.primary_color} !important" do %>
             <i class="fas fa-tachometer-alt"></i>
             <span><%= t('.dashboard') %></span>
           <% end %>
@@ -29,7 +31,9 @@
             <div class="text-center">
               <%= t('.super_admins') %>
             </div>
-            <%= link_to super_admins_enterprises_index_path, class: 'list-group-item list-group-item-action', style: "background-color: #{current_user.enterprise.primary_color} !important" do %>
+            <%= link_to super_admins_enterprises_index_path, class: 'list-group-item list-group-item-action',
+                                                             style: "color: #{current_user.enterprise.secondary_color};
+                                                                     background-color: #{current_user.enterprise.primary_color} !important" do %>
               <i class="fas fa-building"></i>
               <span><%= t('.company') %></span>
             <% end %>
