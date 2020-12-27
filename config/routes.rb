@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  get 'home/index'
+  namespace :super_admins do
+    get 'enterprises/index'
+
+    resources :enterprises
+  end
+
+  get 'dashboard/index'
   
   devise_for :users
-  root to: 'home#index'
+  root to: 'dashboard#index'
 end
