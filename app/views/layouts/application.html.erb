@@ -9,6 +9,9 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+    <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
   </head>
 
   <body>
@@ -18,9 +21,18 @@
           <%= image_tag(current_user.enterprise.logo) if current_user.enterprise.logo.attached? %>
         </div>
         <div class="list-group list-group-flush">
-          <%= link_to super_admins_enterprises_index_path, class: 'list-group-item list-group-item-action', style: "background-color: #{current_user.enterprise.primary_color} !important" do %>
-            <i class="fas fa-building"></i>
-            <span><%= t('.company') %></span>
+          <%= link_to dashboard_index_path, class: 'list-group-item list-group-item-action', style: "background-color: #{current_user.enterprise.primary_color} !important" do %>
+            <i class="fas fa-tachometer-alt"></i>
+            <span><%= t('.dashboard') %></span>
+          <% end %>
+          <% if current_user.is_super_admin %>
+            <div class="text-center">
+              <%= t('.super_admins') %>
+            </div>
+            <%= link_to super_admins_enterprises_index_path, class: 'list-group-item list-group-item-action', style: "background-color: #{current_user.enterprise.primary_color} !important" do %>
+              <i class="fas fa-building"></i>
+              <span><%= t('.company') %></span>
+            <% end %>
           <% end %>
         </div>
       </div>
@@ -52,14 +64,6 @@
             <p class="alert alert-danger"><%= alert %></p>
           <% end %>
           <%= yield %>
-          <% if user_signed_in? %>
-            Logged in as <strong><%= current_user.email %></strong>.
-            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-          <% else %>
-            <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-            <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-          <% end %>
         </div>
       </div>
     </div>

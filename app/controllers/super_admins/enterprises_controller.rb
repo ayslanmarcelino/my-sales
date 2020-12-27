@@ -6,7 +6,7 @@ module SuperAdmins
     rescue_from ActiveRecord::InvalidForeignKey, with: :invalid_foreign_key
 
     def index
-      @enterprises = Enterprise.all.order(:description)
+      @enterprises = Enterprise.all
     end
 
     def new
