@@ -18,7 +18,7 @@
     <div class="d-flex" id="wrapper">
       <div class="border-right" id="sidebar-wrapper" style="background-color: <%= current_user.enterprise.primary_color %>">
         <div class="sidebar-heading text-center">
-          <%= image_tag(current_user.enterprise.logo, height: 80) if current_user.enterprise.logo.attached? %>
+          <%= image_tag(current_user.enterprise.logo, height: 70) if current_user.enterprise.logo.attached? %>
         </div>
         <div class="list-group list-group-flush" style="color: <%= current_user.enterprise.secondary_color %>">
           <%= link_to dashboard_index_path, class: 'list-group-item list-group-item-action',
