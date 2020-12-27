@@ -37,14 +37,13 @@ ActiveRecord::Schema.define(version: 2020_12_27_033430) do
   end
 
   create_table "enterprises", force: :cascade do |t|
-    t.string "description"
-    t.string "primary_color"
-    t.string "secondary_color"
-    t.string "document_number"
-    t.string "company_name"
-    t.string "fantasy_name"
-    t.string "email"
-    t.date "opening_date"
+    t.string "primary_color", null: false
+    t.string "secondary_color", null: false
+    t.string "document_number", null: false
+    t.string "company_name", null: false
+    t.string "fantasy_name", null: false
+    t.string "email", null: false
+    t.date "opening_date", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["document_number"], name: "index_enterprises_on_document_number", unique: true

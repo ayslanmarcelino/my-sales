@@ -1,7 +1,6 @@
 default_password = 12345678
 
-enterprise = Enterprise.create!(description: Faker::Company.name,
-                                primary_color: '#FFF',
+enterprise = Enterprise.create!(primary_color: '#FFF',
                                 secondary_color: '#111',
                                 document_number: Faker::CNPJ.numeric,
                                 company_name: Faker::Company.name,

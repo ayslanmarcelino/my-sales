@@ -36,7 +36,7 @@ module SuperAdmins
     end
 
     def params_enterprise
-      params.require(:enterprise).permit(:company_name, :description, :document_number, :email, :fantasy_name, :opening_date, :primary_color,
+      params.require(:enterprise).permit(:company_name, :description, :document_number, :email, :fantasy_name, :logo, :opening_date, :primary_color,
                                          :secondary_color)
     end
 

@@ -1,0 +1,15 @@
+'pt-BR':
+  activerecord:
+    models:
+      user:
+        one: Usuário
+    attributes:
+      enterprise:
+        company_name: Razão social
+        fantasy_name: Nome fantasia
+        document_number: CPF/CNPJ
+        email: E-mail
+        opening_date: Data de abertura da empresa
+        primary_color: Cor primária
+        secondary_color: Cor secundária
+        logo: Logomarca

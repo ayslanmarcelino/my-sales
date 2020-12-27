@@ -1,14 +1,13 @@
 class CreateEnterprises < ActiveRecord::Migration[6.0]
   def change
     create_table :enterprises do |t|
-      t.string :description
-      t.string :primary_color
-      t.string :secondary_color
-      t.string :document_number
-      t.string :company_name
-      t.string :fantasy_name
-      t.string :email
-      t.date :opening_date
+      t.string :primary_color, null: false
+      t.string :secondary_color, null: false
+      t.string :document_number, null: false
+      t.string :company_name, null: false
+      t.string :fantasy_name, null: false
+      t.string :email, null: false
+      t.date :opening_date, null: false
 
       t.timestamps
     end

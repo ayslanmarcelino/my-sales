@@ -3,14 +3,13 @@
 # Table name: enterprises
 #
 #  id              :bigint           not null, primary key
-#  company_name    :string
-#  description     :string
-#  document_number :string
-#  email           :string
-#  fantasy_name    :string
-#  opening_date    :date
-#  primary_color   :string
-#  secondary_color :string
+#  company_name    :string           not null
+#  document_number :string           not null
+#  email           :string           not null
+#  fantasy_name    :string           not null
+#  opening_date    :date             not null
+#  primary_color   :string           not null
+#  secondary_color :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
@@ -20,4 +19,5 @@
 #
 class Enterprise < ApplicationRecord
   has_one_attached :logo
+  validates_uniqueness_of :document_number
 end
