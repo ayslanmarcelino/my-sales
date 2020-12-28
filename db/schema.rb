@@ -62,14 +62,15 @@ ActiveRecord::Schema.define(version: 2020_12_27_033430) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "first_name"
-    t.string "last_name"
+    t.string "first_name", null: false
+    t.string "last_name", null: false
     t.string "nickname"
-    t.string "document_number"
-    t.boolean "is_admin"
-    t.boolean "is_super_admin"
-    t.boolean "is_active"
-    t.bigint "enterprise_id"
+    t.string "document_number", null: false
+    t.boolean "is_admin", default: false
+    t.boolean "is_super_admin", default: false
+    t.boolean "is_active", default: false
+    t.bigint "enterprise_id", null: false
+    t.index ["document_number"], name: "index_users_on_document_number", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["enterprise_id"], name: "index_users_on_enterprise_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

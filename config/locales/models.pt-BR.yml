@@ -13,6 +13,7 @@
         is_active: Está ativo
         is_admin: É admin
         enterprise: Empresa
+        enterprise_id: Empresa
       enterprise:
         company_name: Razão social
         fantasy_name: Nome fantasia
