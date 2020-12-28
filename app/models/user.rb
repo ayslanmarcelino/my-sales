@@ -45,5 +45,10 @@ class User < ApplicationRecord
   validates_uniqueness_of :document_number
   validates_presence_of %i[first_name last_name email document_number enterprise_id]
   extend FriendlyId
+  before_save :generate_uuid
   friendly_id :uuid, use: :finders
+
+  def generate_uuid
+    self.uuid = SecureRandom.uuid if self.uuid.nil?
+  end
 end

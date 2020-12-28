@@ -29,6 +29,6 @@ class Enterprise < ApplicationRecord
   friendly_id :uuid, use: :finders
 
   def generate_uuid
-    self.uuid = SecureRandom.uuid
+    self.uuid = SecureRandom.uuid if self.uuid.nil?
   end
 end
