@@ -13,13 +13,17 @@
   </head>
 
   <body>
-    <% flash.each do |key, value| %>
-      <% next if key == 'alert' %>
-      <div class="text-center alert alert-<%= key %>">
-        <%= value %>
-      </div>
+    <% if current_user.present? %>
+      <%= render partial: 'layouts/components/application' %>
+    <% else %>
+      <% flash.each do |key, value| %>
+        <% next if key == 'alert' %>
+        <div class="text-center alert alert-<%= key %>">
+          <%= value %>
+        </div>
+      <% end %>
+      <%= yield %>
     <% end %>
-    <%= yield %>
   </body>
 
   <%= javascript_pack_tag 'application' %>
