@@ -9,12 +9,14 @@ Rails.application.routes.draw do
 
   namespace :admins do
     get 'users/index'
+    get 'enterprises/index'
 
     resources :users
+    resources :enterprises
   end
 
   get 'dashboard/index'
-  
+
   devise_for :users
   root to: 'dashboard#index'
 end
