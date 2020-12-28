@@ -12,6 +12,7 @@
         document_number: CPF/CNPJ
         is_active: Está ativo
         is_admin: É admin
+        is_super_admin: É super admin
         enterprise: Empresa
         enterprise_id: Empresa
       enterprise:

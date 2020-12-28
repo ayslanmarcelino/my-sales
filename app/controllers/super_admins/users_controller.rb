@@ -20,7 +20,7 @@ module SuperAdmins
       @user = User.new(params_user)
 
       if @user.save
-        redirect_to admins_users_path
+        redirect_to super_admins_users_path
         flash[:success] = 'Usuário cadastrado com sucesso.'
       else
         render :new
@@ -31,7 +31,7 @@ module SuperAdmins
 
     def update
       if @user.update(params_user)
-        redirect_to admins_users_path
+        redirect_to super_admins_users_path
         flash[:success] = 'Usuário atualizado com sucesso.'
       else
         render :edit
@@ -40,7 +40,7 @@ module SuperAdmins
 
     def destroy
       if @user.destroy
-        redirect_to admins_users_path
+        redirect_to super_admins_users_path
         flash[:success] = 'Usuário excluído com sucesso.'
       else
         render :index
@@ -59,8 +59,8 @@ module SuperAdmins
 
     def params_user
       params.require(:user)
-            .permit(:document_number, :email, :first_name, :is_active, :is_admin, :last_name, :nickname,
-                    :enterprise_id, :password, :password_confirmation)
+            .permit(:document_number, :email, :first_name, :is_active, :is_admin, :is_super_admin, :last_name,
+                    :nickname, :enterprise_id, :password, :password_confirmation)
     end
 
     def verify_password
