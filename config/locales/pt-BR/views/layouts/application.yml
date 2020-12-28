@@ -2,6 +2,8 @@ pt-BR:
   layouts:
     application:
       dashboard: Resumo
+      admins: Admin
+      users: Usuários
       super_admins: Super Admin
       company: Empresas
       exit: Sair

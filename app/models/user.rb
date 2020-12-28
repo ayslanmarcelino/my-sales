@@ -11,7 +11,6 @@
 #  first_name             :string
 #  is_active              :boolean
 #  is_admin               :boolean
-#  is_employee            :boolean
 #  is_super_admin         :boolean
 #  last_name              :string
 #  last_sign_in_at        :datetime

@@ -66,7 +66,6 @@ ActiveRecord::Schema.define(version: 2020_12_27_033430) do
     t.string "last_name"
     t.string "nickname"
     t.string "document_number"
-    t.boolean "is_employee"
     t.boolean "is_admin"
     t.boolean "is_super_admin"
     t.boolean "is_active"

@@ -63,3 +63,13 @@ html {
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
   background-color: $green !important;
 }
+
+.custom-control-label {
+  position: relative;
+  vertical-align: top;
+  margin-left: 42px;
+}
+
+.custom-switch {
+  padding-left: 1rem !important;
+}

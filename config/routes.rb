@@ -7,6 +7,12 @@ Rails.application.routes.draw do
     resources :enterprises
   end
 
+  namespace :admins do
+    get 'users/index'
+
+    resources :users
+  end
+
   get 'dashboard/index'
   
   devise_for :users

@@ -18,7 +18,7 @@
     <div class="d-flex" id="wrapper">
       <div class="border-right" id="sidebar-wrapper" style="background-color: <%= current_user.enterprise.primary_color %>">
         <div class="sidebar-heading text-center">
-          <%= image_tag(current_user.enterprise.logo, height: 70) if current_user.enterprise.logo.attached? %>
+          <%= image_tag(current_user.enterprise.logo, style: 'height: 70px; max-width: 200px;') if current_user.enterprise.logo.attached? %>
         </div>
         <div class="list-group list-group-flush" style="color: <%= current_user.enterprise.secondary_color %>">
           <%= link_to dashboard_index_path, class: 'list-group-item list-group-item-action',
@@ -26,6 +26,17 @@
                                                     background-color: #{current_user.enterprise.primary_color} !important" do %>
             <i class="fas fa-tachometer-alt"></i>
             <span><%= t('.dashboard') %></span>
+          <% end %>
+          <% if current_user.is_admin %>
+            <div class="text-center">
+              <%= t('.admins') %>
+            </div>
+            <%= link_to admins_users_index_path, class: 'list-group-item list-group-item-action',
+                                                 style: "color: #{current_user.enterprise.secondary_color};
+                                                         background-color: #{current_user.enterprise.primary_color} !important" do %>
+              <i class="fas fa-users"></i>
+              <span><%= t('.users') %></span>
+            <% end %>
           <% end %>
           <% if current_user.is_super_admin %>
             <div class="text-center">

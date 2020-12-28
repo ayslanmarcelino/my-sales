@@ -4,6 +4,15 @@
       user:
         one: Usuário
     attributes:
+      user:
+        first_name: Primeiro nome
+        last_name: Último nome
+        nickname: Apelido
+        email: E-mail
+        document_number: CPF/CNPJ
+        is_active: Está ativo
+        is_admin: É admin
+        enterprise: Empresa
       enterprise:
         company_name: Razão social
         fantasy_name: Nome fantasia
