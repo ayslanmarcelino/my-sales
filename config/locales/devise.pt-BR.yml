@@ -16,6 +16,7 @@ pt-BR:
         last_sign_in_ip: Último IP de acesso
         locked_at: Bloqueado em
         password: Senha
+        new_password: Nova senha
         password_confirmation: Confirmação de senha
         remember_created_at: Lembrar criado em
         remember_me: Lembre-se de mim
@@ -90,8 +91,14 @@ pt-BR:
       updated: A sua senha foi alterada com sucesso. Você está autenticado.
       updated_not_active: Sua senha foi alterada com sucesso.
     registrations:
+      edit_my_profile: Editar meu perfil
+      cancel: Cancelar
+      edit_profile: Editar
       destroyed: Adeus! A sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve.
       edit:
+        cancel: Cancelar
+        confirm: Confirmar
+        confirm_password: Confirme sua senha atual
         are_you_sure: Você tem certeza?
         cancel_my_account: Cancelar minha conta
         currently_waiting_confirmation_for_email: 'No momento esperando por: %{email}'

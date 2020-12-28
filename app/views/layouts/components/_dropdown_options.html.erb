@@ -1,4 +1,8 @@
+<%= link_to edit_user_registration_path, class: 'dropdown-item' do %>
+  <i class="fas fa-edit fa-sm fa-fw mr-2 text-gray-400"></i>
+  <%= t('layouts.application.my_profile') %>
+<% end %>
 <%= link_to destroy_user_session_path, method: :delete, class: 'dropdown-item' do %>
   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-  <%= t('.exit') %>
+  <%= t('layouts.application.exit') %>
 <% end %>
