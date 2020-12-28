@@ -3,7 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
+gem 'brcobranca'
+gem 'devise'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
+gem 'rails-i18n'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
 gem 'sass-rails', '>= 6'
@@ -17,8 +20,12 @@ group :development, :test do
 end
 
 group :development do
+  gem 'annotate'
+  gem 'cpf_faker'
+  gem 'faker'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.2'
+  gem 'pry'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end

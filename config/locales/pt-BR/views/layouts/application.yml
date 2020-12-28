@@ -1,0 +1,7 @@
+pt-BR:
+  layouts:
+    application:
+      dashboard: Resumo
+      super_admins: Super Admin
+      company: Empresas
+      exit: Sair

@@ -1,0 +1,10 @@
+pt-BR:
+  super_admins:
+    enterprises:
+      index:
+        registered_enterprises: Empresas cadastradas
+        company_name: Razão social
+        fantasy_name: Nome fantasia
+        document_number: CPF/CNPJ
+        email: E-mail
+        delete_confirm: Você tem certeza que deseja excluir a empresa
