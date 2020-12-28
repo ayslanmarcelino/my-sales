@@ -6,6 +6,9 @@ class SuperAdminsController < UsersController
   private
 
   def super_admin?
-    redirect_to root_path, notice: 'Você não tem permissão para acessar esta página' if current_user.is_super_admin == false
+    if current_user.is_super_admin == false
+      redirect_to root_path
+      flash[:danger] = 'Você não tem permissão para acessar esta página'
+    end
   end
 end

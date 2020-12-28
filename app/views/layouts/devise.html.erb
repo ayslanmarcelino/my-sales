@@ -10,10 +10,27 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-growl/1.0.0/jquery.bootstrap-growl.min.js"></script>
   </head>
 
   <body>
-    <%= yield %>
+    <% if current_user.present? %>
+      <%= render partial: 'layouts/components/application' %>
+    <% else %>
+      <% flash.each do |key, value| %>
+        <% next if key == 'alert' %>
+        <div class="text-center alert-<%= key %>">
+          <script>
+            $.bootstrapGrowl('<%= value %>', {
+              type: '<%= key %>',
+              stackup_spacing: 10,
+              width: '100%'
+            });
+          </script>
+        </div>
+      <% end %>
+      <%= yield %>
+    <% end %>
   </body>
 
   <%= javascript_pack_tag 'application' %>

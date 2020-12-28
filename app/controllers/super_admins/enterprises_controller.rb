@@ -16,17 +16,32 @@ module SuperAdmins
     def create
       @enterprise = Enterprise.new(params_enterprise)
 
-      @enterprise.save ? (redirect_to super_admins_enterprises_path, notice: 'Empresa cadastrada com sucesso.') : (render :new)
+      if @enterprise.save
+        redirect_to super_admins_enterprises_path 
+        flash[:success] = 'Empresa cadastrada com sucesso.'
+      else
+        render :new
+      end
     end
 
     def edit; end
 
     def update
-      @enterprise.update(params_enterprise) ? (redirect_to super_admins_enterprises_path, notice: 'Empresa atualizada com sucesso.') : (render :edit)
+      if @enterprise.update(params_enterprise)
+        redirect_to super_admins_enterprises_path
+        flash[:success] = 'Empresa atualizada com sucesso.'
+      else
+        render :edit
+      end
     end
 
     def destroy
-      @enterprise.destroy ? (redirect_to super_admins_enterprises_path, notice: 'Empresa excluída com sucesso.') : (render :index)
+      if @enterprise.destroy
+        redirect_to super_admins_enterprises_path
+        flash[:success] = 'Empresa excluída com sucesso.'
+      else
+        render :index
+      end
     end
 
     private
@@ -37,11 +52,12 @@ module SuperAdmins
 
     def params_enterprise
       params.require(:enterprise).permit(:company_name, :description, :document_number, :email, :fantasy_name, :logo, :opening_date, :primary_color,
-                                         :secondary_color)
+                                         :secondary_color, :uuid)
     end
 
     def invalid_foreign_key
-      redirect_to super_admins_enterprises_path, notice: 'Não é possível excluir, pois há usuários vinculados.'
+      redirect_to super_admins_enterprises_path
+      flash[:danger] = 'Não é possível excluir, pois há usuários vinculados.'
     end
   end
 end
