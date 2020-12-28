@@ -19,17 +19,32 @@ module Admins
     def create
       @user = User.new(params_user)
 
-      @user.save ? (redirect_to admins_users_path, notice: 'Usuário cadastrado com sucesso.') : (render :new)
+      if @user.save
+        redirect_to admins_users_path
+        flash[:success] = 'Usuário cadastrado com sucesso.'
+      else
+        render :new
+      end
     end
 
     def edit; end
 
     def update
-      @user.update(params_user) ? (redirect_to admins_users_path, notice: 'Usuário atualizado com sucesso.') : (render :edit)
+      if @user.update(params_user)
+        redirect_to admins_users_path
+        flash[:success] = 'Usuário atualizado com sucesso.'
+      else
+        render :edit
+      end
     end
 
     def destroy
-      @user.destroy ? (redirect_to admins_users_path, notice: 'Usuário excluído com sucesso.') : (render :index)
+      if @user.destroy
+        redirect_to admins_users_path
+        flash[:success] = 'Usuário excluído com sucesso.'
+      else
+        render :index
+      end
     end
 
     private

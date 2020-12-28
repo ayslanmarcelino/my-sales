@@ -85,14 +85,17 @@
         $("#wrapper").toggleClass("toggled");
       });
     </script>
-    <% if notice %>
-      <script>
-        $.bootstrapGrowl('<%= notice %>', {
-          type: 'success',
-          stackup_spacing: 10,
-          width: '100%'
-        });
-      </script>
+    <% flash.each do |key, value| %>
+      <% next if key == 'alert' %>
+      <div class="text-center alert alert-<%= key %>">
+        <script>
+          $.bootstrapGrowl('<%= value %>', {
+            type: '<%= key %>',
+            stackup_spacing: 10,
+            width: '100%'
+          });
+        </script>
+      </div>
     <% end %>
   </body>
 </html>
