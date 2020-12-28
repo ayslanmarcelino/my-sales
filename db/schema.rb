@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_27_033430) do
+ActiveRecord::Schema.define(version: 2020_12_28_174118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2020_12_27_033430) do
   end
 
   create_table "enterprises", force: :cascade do |t|
+    t.uuid "uuid", null: false
     t.string "primary_color", null: false
     t.string "secondary_color", null: false
     t.string "document_number", null: false
@@ -46,7 +47,9 @@ ActiveRecord::Schema.define(version: 2020_12_27_033430) do
     t.date "opening_date", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "slug"
     t.index ["document_number"], name: "index_enterprises_on_document_number", unique: true
+    t.index ["slug"], name: "index_enterprises_on_slug", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -62,6 +65,7 @@ ActiveRecord::Schema.define(version: 2020_12_27_033430) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.uuid "uuid", null: false
     t.string "first_name", null: false
     t.string "last_name", null: false
     t.string "nickname"

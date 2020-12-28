@@ -91,7 +91,6 @@ pt-BR:
       updated: A sua senha foi alterada com sucesso. Você está autenticado.
       updated_not_active: Sua senha foi alterada com sucesso.
     registrations:
-      edit_my_enterprise: Editar minha empresa
       edit_my_profile: Editar meu perfil
       cancel: Cancelar
       edit_profile: Editar

@@ -2,13 +2,15 @@ default_password = 12345678
 
 enterprise = Enterprise.create!(primary_color: '#FFF',
                                 secondary_color: '#111',
+                                uuid: SecureRandom.uuid,
                                 document_number: Faker::CNPJ.numeric,
                                 company_name: Faker::Company.name,
                                 fantasy_name: Faker::Company.industry,
                                 email: Faker::Internet.email,
                                 opening_date: Date.today.strftime('%Y-%m-%d'))
 
-User.create!(email: 'admin@admin.com',
+User.create!(uuid: SecureRandom.uuid,
+             email: 'admin@admin.com',
              password: default_password,
              password_confirmation: default_password,
              first_name: Faker::Name.name,

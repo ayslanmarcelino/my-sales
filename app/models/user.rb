@@ -20,6 +20,7 @@
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
 #  sign_in_count          :integer          default(0), not null
+#  uuid                   :uuid             not null
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  enterprise_id          :bigint           not null
@@ -43,4 +44,6 @@ class User < ApplicationRecord
   belongs_to :enterprise
   validates_uniqueness_of :document_number
   validates_presence_of %i[first_name last_name email document_number enterprise_id]
+  extend FriendlyId
+  friendly_id :uuid, use: :finders
 end

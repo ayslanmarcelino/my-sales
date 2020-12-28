@@ -52,7 +52,7 @@ module SuperAdmins
 
     def params_enterprise
       params.require(:enterprise).permit(:company_name, :description, :document_number, :email, :fantasy_name, :logo, :opening_date, :primary_color,
-                                         :secondary_color)
+                                         :secondary_color, :uuid)
     end
 
     def invalid_foreign_key

@@ -7,4 +7,6 @@ pt-BR:
         fantasy_name: Nome fantasia
         document_number: CPF/CNPJ
         email: E-mail
+        primary_color: Cor primária
+        secondary_color: Cor secundária
         delete_confirm: Você tem certeza que deseja excluir a empresa

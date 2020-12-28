@@ -5,6 +5,7 @@ ruby '2.6.3'
 
 gem 'brcobranca'
 gem 'devise'
+gem 'friendly_id'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 gem 'rails-i18n'
 gem 'pg', '>= 0.18', '< 2.0'
