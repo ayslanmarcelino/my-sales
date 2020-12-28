@@ -54,7 +54,7 @@ module SuperAdmins
     end
 
     def set_enterprise
-      @enterprise = Enterprise.where(id: current_user.enterprise_id)
+      @enterprise = Enterprise.all
     end
 
     def params_user
