@@ -7,6 +7,6 @@ pt-BR:
         nickname: Apelido
         document_number: CPF/CNPJ
         email: E-mail
-        is_active: Está ativo
+        function: Função
         enterprise: Empresa
         delete_confirm: Você tem certeza que deseja excluir o usuário

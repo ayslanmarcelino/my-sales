@@ -13,7 +13,7 @@
                 <th><%= t('.nickname')%></th>
                 <th><%= t('.document_number')%></th>
                 <th><%= t('.email')%></th>
-                <th><%= t('.is_active')%>?</th>
+                <th><%= t('.function')%></th>
                 <th class="no-sort table-buttons">
                   <%= link_to new_admins_user_path(@user), class: 'btn btn-success btn-circle' do %>
                     <i class="fas fa-plus"></i>
@@ -28,7 +28,11 @@
                   <td><%= user.nickname %></td>
                   <td><%= format_document_number(user.document_number) %></td>
                   <td><%= user.email %></td>
-                  <td><%= translate_boolean(user.is_active) %></td>
+                  <td class="text-center">
+                    <span class="badge badge-<%= function_color(user.is_active, user.is_admin, user.is_super_admin) %>" style="width: 100%">
+                      <%= function_translate(user.is_active, user.is_admin, user.is_super_admin) %>
+                    </span>
+                  </td>
                   <td class="table-buttons">
                     <%= link_to edit_admins_user_path(user), class: 'btn btn-info btn-circle' do %>
                       <i class="fas fa-edit"></i>
