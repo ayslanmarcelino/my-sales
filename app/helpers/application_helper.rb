@@ -9,15 +9,15 @@ module ApplicationHelper
 
   def function_color(active, admin, super_admin)
     return 'danger' if !active
-    return 'success' if super_admin
-    return 'info' if admin
-    return 'secondary' if !admin
+    return 'success' if active && super_admin
+    return 'info' if active && admin
+    return 'secondary' if active && !admin
   end
 
   def function_translate(active, admin, super_admin)
     return t('application.disabled') if !active
-    return t('application.super_admin') if super_admin
-    return t('application.admin') if admin
-    return t('application.employee') if !admin
+    return t('application.super_admin') if active && super_admin
+    return t('application.admin') if active && admin
+    return t('application.employee') if active && !admin && !super_admin
   end
 end
