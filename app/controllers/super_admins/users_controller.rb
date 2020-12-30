@@ -7,7 +7,8 @@ module SuperAdmins
     before_action :set_enterprise, only: %w[create new edit update destroy]
 
     def index
-      @users = User.all
+      @q = User.ransack(params[:q])
+      @users = @q.result(distinct: true)
     end
 
     def new

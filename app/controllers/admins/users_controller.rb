@@ -6,8 +6,9 @@ module Admins
     before_action :set_user, only: %w[edit update destroy]
     before_action :set_enterprise, only: %w[create new edit update destroy]
 
-    def index
-      @users = User.all.where(enterprise_id: current_user.enterprise_id)
+    def index   
+      @q = User.where(enterprise_id: current_user.enterprise_id).ransack(params[:q])
+      @users = @q.result(distinct: true)
     end
 
     def new

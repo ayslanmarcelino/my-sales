@@ -11,8 +11,9 @@
         email: E-mail
         document_number: CPF/CNPJ
         is_active: Está ativo
-        is_admin: É admin
-        is_super_admin: É super admin
+        is_employee: Funcionário
+        is_admin: Admin
+        is_super_admin: Super admin
         enterprise: Empresa
         enterprise_id: Empresa
       enterprise:
