@@ -21,6 +21,7 @@
 #  index_enterprises_on_slug             (slug) UNIQUE
 #
 class Enterprise < ApplicationRecord
+  has_many :users
   extend FriendlyId
   has_one_attached :logo
   validates_uniqueness_of :document_number

@@ -53,7 +53,7 @@ class User < ApplicationRecord
   end
 
   def status_users
-    return 'Desativado' if !is_active
+    return 'Desativado' unless is_active
     return 'Super admin' if is_active && is_super_admin
     return 'Admin' if is_active && is_admin
     return 'Funcionário' if is_active && !is_admin && !is_super_admin

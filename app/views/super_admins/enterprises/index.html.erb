@@ -15,6 +15,7 @@
                 <th><%= t('.email')%></th>
                 <th><%= t('.primary_color')%></th>
                 <th><%= t('.secondary_color')%></th>
+                <th><%= t('.users_count')%></th>
                 <th class="no-sort table-buttons">
                   <%= link_to new_super_admins_enterprise_path(@enterprise), class: 'btn btn-success btn-circle' do %>
                     <i class="fas fa-plus"></i>
@@ -39,6 +40,7 @@
                       <%= enterprise.secondary_color %>
                     </span>
                   </td>
+                  <td><%= enterprise.users.count %></td>
                   <td class="table-buttons">
                     <%= link_to edit_super_admins_enterprise_path(enterprise), class: 'btn btn-info btn-circle' do %>
                       <i class="fas fa-edit"></i>
