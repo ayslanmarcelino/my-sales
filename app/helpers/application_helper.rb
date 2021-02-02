@@ -15,7 +15,7 @@ module ApplicationHelper
   end
 
   def function_translate(active, admin, super_admin)
-    return t('application.disabled') if !active
+    return t('application.disabled') unless active
     return t('application.super_admin') if active && super_admin
     return t('application.admin') if active && admin
     return t('application.employee') if active && !admin && !super_admin

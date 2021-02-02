@@ -51,7 +51,12 @@ module Admins
     private
 
     def set_user
-      @user = User.find(params[:id])
+      if current_user.enterprise_id == User.find(params[:id]).enterprise_id
+        @user = User.find(params[:id])
+      else
+        redirect_to root_path
+        flash[:danger] = 'Você não tem permissão para editar este usuário.' 
+      end
     end
 
     def set_enterprise

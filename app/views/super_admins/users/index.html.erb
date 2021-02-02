@@ -1,7 +1,7 @@
 <div class="text-center">
   <h4><%= t('.registered_users') %></h4>
 </div>
-<%= render partial: 'layouts/filter' %>
+<%= render partial: 'layouts/filter', locals: { url: super_admins_users_path } %>
 <div class="card shadow mb-4">
   <div class="card-body">
     <div class="table-responsive">

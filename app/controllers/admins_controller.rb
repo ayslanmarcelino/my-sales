@@ -6,7 +6,7 @@ class AdminsController < UsersController
   private
 
   def admin?
-    if current_user.is_admin == false
+    if !current_user.is_admin
       redirect_to root_path
       flash[:danger] = 'Você não tem permissão para acessar esta página' 
     end

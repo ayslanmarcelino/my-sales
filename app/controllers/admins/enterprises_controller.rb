@@ -18,7 +18,12 @@ module Admins
     private
 
     def set_enterprise
-      @enterprise = Enterprise.friendly.find(params[:id])
+      if current_user.enterprise_id == Enterprise.find(params[:id]).id
+        @enterprise = Enterprise.find(params[:id])
+      else
+        redirect_to root_path
+        flash[:danger] = 'Você não tem permissão para editar esta empresa.' 
+      end
     end
 
     def params_enterprise
