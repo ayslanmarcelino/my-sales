@@ -5,11 +5,11 @@
     </div>
     <div class="list-group list-group-flush" style="color: <%= current_user.enterprise.secondary_color %>">
       <%= render partial: 'layouts/components/users' %>
-      <% if current_user.is_admin %>
-        <%= render partial: 'layouts/components/admins' %>
-      <% end %>
       <% if current_user.is_super_admin %>
         <%= render partial: 'layouts/components/super_admins' %>
+      <% end %>
+      <% if current_user.is_admin %>
+        <%= render partial: 'layouts/components/admins' %>
       <% end %>
     </div>
   </div>
