@@ -1,0 +1,64 @@
+<div class="text-center">
+  <h4><%= t('.registered_providers') %></h4>
+</div>
+<div class="card shadow mb-4">
+  <div class="card-body">
+    <div class="table-responsive">
+      <div class="row">
+        <div class="col-sm-12">
+          <table id="table" class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th><%= t('.company_name')%></th>
+                <th><%= t('.document_number')%></th>
+                <th><%= t('.email')%></th>
+                <th><%= t('.phone_number')%></th>
+                <th><%= t('.telephone_number')%></th>
+                <th class="no-sort table-buttons">
+                  <%= link_to new_provider_path(@provider), class: 'btn btn-success btn-circle' do %>
+                    <i class="fas fa-plus"></i>
+                  <% end %>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @providers.each do |provider| %>
+                <tr>
+                  <td><%= provider.company_name %></td>
+                  <td><%= format_document_number(provider.document_number) %></td>
+                  <td><%= provider.email %></td>
+                  <td><%= provider.phone_number %></td>
+                  <td><%= provider.telephone_number %></td>
+                  <td class="table-buttons">
+                    <%= link_to edit_provider_path(provider), class: 'btn btn-info btn-circle' do %>
+                      <i class="fas fa-edit"></i>
+                    <% end %>
+                    <%= link_to provider_path(provider),
+                        method: :delete,
+                        class: 'btn btn-danger btn-circle',
+                        data: { confirm: "#{t('.delete_confirm')}: #{provider.company_name}?" } do %>
+                      <i class="fas fa-trash"></i>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  $(document).ready(function(){
+    $('#table').DataTable({
+      "columnDefs": [{
+        "targets": 'no-sort',
+        "orderable": false,
+      }],
+      "language": {
+        "url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese-Brasil.json"
+      }
+    });
+  });
+</script>

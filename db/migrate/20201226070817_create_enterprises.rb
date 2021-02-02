@@ -7,6 +7,7 @@ class CreateEnterprises < ActiveRecord::Migration[6.0]
       t.string :company_name, null: false
       t.string :fantasy_name, null: false
       t.string :email, null: false
+      t.boolean :is_active, null:false, default: true
       t.date :opening_date, null: false
 
       t.timestamps

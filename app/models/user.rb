@@ -26,7 +26,6 @@
 #
 # Indexes
 #
-#  index_users_on_document_number       (document_number) UNIQUE
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_enterprise_id         (enterprise_id)
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
@@ -41,7 +40,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   belongs_to :enterprise
-  validates_uniqueness_of :document_number
+  validates :document_number, uniqueness: { scope: :enterprise_id }
   validates_presence_of %i[first_name last_name email document_number enterprise_id]
 
   def status_users

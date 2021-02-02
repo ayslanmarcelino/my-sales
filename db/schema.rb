@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_27_033430) do
+ActiveRecord::Schema.define(version: 2021_02_02_024704) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,10 +43,26 @@ ActiveRecord::Schema.define(version: 2020_12_27_033430) do
     t.string "company_name", null: false
     t.string "fantasy_name", null: false
     t.string "email", null: false
+    t.boolean "is_active", default: true, null: false
     t.date "opening_date", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["document_number"], name: "index_enterprises_on_document_number", unique: true
+  end
+
+  create_table "providers", force: :cascade do |t|
+    t.string "fantasy_name"
+    t.string "company_name"
+    t.string "document_number"
+    t.string "email"
+    t.string "phone_number"
+    t.string "responsible"
+    t.string "telephone_number"
+    t.string "observation"
+    t.bigint "enterprise_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["enterprise_id"], name: "index_providers_on_enterprise_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -70,12 +86,12 @@ ActiveRecord::Schema.define(version: 2020_12_27_033430) do
     t.boolean "is_super_admin", default: false
     t.boolean "is_active", default: false
     t.bigint "enterprise_id", null: false
-    t.index ["document_number"], name: "index_users_on_document_number", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["enterprise_id"], name: "index_users_on_enterprise_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "providers", "enterprises"
   add_foreign_key "users", "enterprises"
 end

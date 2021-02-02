@@ -7,7 +7,8 @@ module Admins
     before_action :set_enterprise, only: %w[create new edit update destroy]
 
     def index   
-      @q = User.where(enterprise_id: current_user.enterprise_id).ransack(params[:q])
+      @q = User.where(enterprise_id: current_user.enterprise_id)
+               .ransack(params[:q])
       @users = @q.result(distinct: true)
     end
 
