@@ -20,4 +20,12 @@ module ApplicationHelper
     return t('application.admin') if active && admin
     return t('application.employee') if active && !admin && !super_admin
   end
+
+  def enterprise_color(is_active)
+    is_active ? 'success' : 'danger'
+  end
+
+  def enterprise_status(is_active)
+    is_active ? t('application.actived') : t('application.disabled')
+  end
 end

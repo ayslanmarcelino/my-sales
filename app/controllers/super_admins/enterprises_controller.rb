@@ -52,13 +52,12 @@ module SuperAdmins
 
     def params_enterprise
       params.require(:enterprise).permit(:company_name, :description, :document_number, :email, :fantasy_name, :logo, :opening_date, :primary_color,
-                                         :secondary_color)
+                                         :secondary_color, :is_active)
     end
 
     def invalid_foreign_key
       redirect_to super_admins_enterprises_path
-      flash[:danger] = 'Não é possível excluir, pois há usuários vinculados.'
+      flash[:danger] = 'Não é possível excluir, pois há dados vinculados.'
     end
   end
 end
-  

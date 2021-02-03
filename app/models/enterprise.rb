@@ -7,6 +7,7 @@
 #  document_number :string           not null
 #  email           :string           not null
 #  fantasy_name    :string           not null
+#  is_active       :boolean          default(TRUE), not null
 #  opening_date    :date             not null
 #  primary_color   :string           not null
 #  secondary_color :string           not null

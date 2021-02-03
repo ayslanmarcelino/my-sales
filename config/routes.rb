@@ -18,7 +18,9 @@ Rails.application.routes.draw do
   end
 
   get 'dashboard/index'
+  get 'providers/index'
 
   devise_for :users
+  resources :providers
   root to: 'dashboard#index'
 end
