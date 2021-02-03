@@ -2,7 +2,6 @@
 
 class ProvidersController < UsersController
   before_action :set_provider, only: %w[edit update destroy]
-  before_action :set_enterprise, only: %w[create new edit update destroy]
 
   def index
     @q = Provider.where(enterprise_id: current_user.enterprise_id)
@@ -59,10 +58,7 @@ class ProvidersController < UsersController
   def params_provider
     params.require(:provider)
           .permit(:company_name, :document_number, :email, :fantasy_name, :observation,
-                  :phone_number, :telephone_number, :enterprise_id, :responsible)
-  end
-
-  def set_enterprise
-    @enterprise = Enterprise.where(id: current_user.enterprise_id)
+                  :phone_number, :telephone_number, :responsible)
+          .with_defaults(enterprise_id: current_user.enterprise_id)
   end
 end

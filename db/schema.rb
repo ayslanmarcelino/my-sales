@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_02_024704) do
+ActiveRecord::Schema.define(version: 2021_02_03_065245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,14 @@ ActiveRecord::Schema.define(version: 2021_02_02_024704) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["document_number"], name: "index_enterprises_on_document_number", unique: true
+  end
+
+  create_table "product_categories", force: :cascade do |t|
+    t.string "description"
+    t.bigint "enterprise_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["enterprise_id"], name: "index_product_categories_on_enterprise_id"
   end
 
   create_table "providers", force: :cascade do |t|
@@ -92,6 +100,7 @@ ActiveRecord::Schema.define(version: 2021_02_02_024704) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "product_categories", "enterprises"
   add_foreign_key "providers", "enterprises"
   add_foreign_key "users", "enterprises"
 end

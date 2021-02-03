@@ -19,8 +19,10 @@ Rails.application.routes.draw do
 
   get 'dashboard/index'
   get 'providers/index'
+  get 'product_categories/index'
 
   devise_for :users
   resources :providers
+  resources :product_categories
   root to: 'dashboard#index'
 end

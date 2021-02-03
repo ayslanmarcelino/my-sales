@@ -4,7 +4,6 @@ module Admins
   class UsersController < AdminsController
     before_action :verify_password, only: %w[update]
     before_action :set_user, only: %w[edit update destroy]
-    before_action :set_enterprise, only: %w[create new edit update destroy]
 
     def index   
       @q = User.where(enterprise_id: current_user.enterprise_id)
@@ -32,6 +31,9 @@ module Admins
     def edit; end
 
     def update
+      
+      binding.pry
+      
       if @user.update(params_user)
         redirect_to admins_users_path
         flash[:success] = 'Usuário atualizado com sucesso.'
@@ -60,14 +62,11 @@ module Admins
       end
     end
 
-    def set_enterprise
-      @enterprise = Enterprise.where(id: current_user.enterprise_id)
-    end
-
     def params_user
       params.require(:user)
             .permit(:document_number, :email, :first_name, :is_active, :is_admin, :last_name, :nickname,
-                    :enterprise_id, :password, :password_confirmation)
+                    :password, :password_confirmation)
+            .with_defaults(enterprise_id: current_user.enterprise_id)
     end
 
     def verify_password
