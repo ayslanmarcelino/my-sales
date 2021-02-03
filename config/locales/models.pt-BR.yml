@@ -37,3 +37,5 @@
         observation: Observações
         enterprise: Empresa
         delete_confirm: Você tem certeza que deseja excluir o fornecedor
+      product_category:
+        description: Descrição
