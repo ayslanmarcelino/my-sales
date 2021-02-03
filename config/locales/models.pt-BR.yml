@@ -25,3 +25,15 @@
         primary_color: Cor primária
         secondary_color: Cor secundária
         logo: Logomarca
+        is_active: Ativado
+      provider:
+        company_name: Razão social
+        fantasy_name: Nome fantasia
+        document_number: CPF/CNPJ
+        responsible: Responsável
+        email: E-mail
+        phone_number: Telefone fixo
+        telephone_number: Celular
+        observation: Observações
+        enterprise: Empresa
+        delete_confirm: Você tem certeza que deseja excluir o fornecedor
